@@ -1,10 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import pygame
 
 class Brick_GUI(pygame.sprite.Sprite):
 
     # Các giá trị của khối gạch
     def __init__(self,brick,unit):
-        super().__init__()
+        super(Brick_GUI, self).__init__()
         self.unit = int(unit)
 
         self.length = brick.length
