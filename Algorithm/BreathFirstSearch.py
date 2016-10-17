@@ -2,31 +2,29 @@ from State.Board import *
 from State.Brick import *
 
 def isVisited(state, listState):
-	for s in listState:
-		if state.createBoard(0) == s.createBoard(0):
-			return True
-	return False
+  for s in listState:
+    if state.createBoard(0) == s.createBoard(0):
+      return True
+  return False
 
 def solveBFS(startState):
-	#TODO: implement BFS
-	visited = []
-	queue = [startState]
-	#Id = 0
+  visited = []
+  queue = [startState]
 
-	while queue != []:
-		currentState = queue.pop()
-		
-		if currentState.checkGoal():
-			return currentState
+  while queue != []:
+    currentState = queue.pop()
 
-		if isVisited(currentState, visited):
-			continue
+    if currentState.checkGoal():
+      return currentState
 
-		visited += [currentState]
+    if isVisited(currentState, visited):
+      continue
 
-		nextStates = currentState.generateNextStates(currentState.parentMove[0])
+    visited += [currentState]
 
-		for s in nextStates:
-			queue = [s] + queue
+    nextStates = currentState.generateNextStates(currentState.parentMove[0])
 
-	return None
+    for s in nextStates:
+      queue = [s] + queue
+
+  return None
